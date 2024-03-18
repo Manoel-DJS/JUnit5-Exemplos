@@ -22,5 +22,14 @@ public class AssertionsTeste {
         pessoa = new Pessoa("Luciano", LocalDateTime.now());
         Assertions.assertNotNull(pessoa);
     }
-    
+
+    @Test
+    void validarNumerosDeTiposDiferentes(){
+        double valor = 5.0;
+        double outroValor = 5.0;
+        int valorint = 5;
+
+        Assertions.assertEquals(valor, outroValor);
+        Assertions.assertEquals(valorint, outroValor);
+    }
 }
