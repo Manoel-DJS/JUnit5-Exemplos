@@ -3,11 +3,22 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class PessoaTest {
-    @Test
-    void validarCalculoDeIdade() {
-        Pessoa pessoa = new Pessoa("Adalberto", LocalDate.of(2020,1,1));
-        Assertions.assertEquals(4, pessoa.getIdade());
-    }
+        @Test
+    void deveCalcularIdadeCorretamente() {
+            Pessoa veronica = new Pessoa("Verônica", LocalDateTime.of(2002, 5, 14, 15,0,0));
+            //
+            Assertions.assertEquals(21, veronica.getIdade());
+        }
+
+        @Test
+    void deveRetornarMaiorIdade() {
+            Pessoa veralucia = new Pessoa("Veralucia", LocalDateTime.of(2002, 5, 14, 15,0,0));
+            Assertions.assertTrue(veralucia.ehMaiorIdade());
+            Pessoa Joao = new Pessoa("João Paulo", LocalDateTime.of(2012,5,30,15,0,0));
+            Assertions.assertFalse(Joao.ehMaiorIdade());
+        }
+
 }
